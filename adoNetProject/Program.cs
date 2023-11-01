@@ -22,7 +22,7 @@ namespace adoNetProject
             string RqueryString = "select ProductId,ProductName, Description from Products_tbl";
             string IqueryString = "insert into Products_tbl (ProductName,Description,CategoryId) values (@ProductName,@Description,@CategoryId)";
 
-            //ac.InsertDate(IqueryString, connectionString);
+            ac.InsertDate(IqueryString, connectionString);
             ac.ReadData(RqueryString, connectionString);
 
 
