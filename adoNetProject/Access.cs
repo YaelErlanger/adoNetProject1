@@ -13,8 +13,8 @@ namespace adoNetProject
 
         public  void InsertDate(string IqueryString, string connectionString)
         {
-            string ProductName, Description,image,price, CategoryId;
-       
+            string ProductName, Description,image;
+            int price, CategoryId;
             string next = "y";
             while (next == "y")
             {
@@ -23,11 +23,11 @@ namespace adoNetProject
                 Console.WriteLine("insert Description: ");
                 Description = Console.ReadLine();
                 Console.WriteLine("insert CategoryId: ");
-                CategoryId =  Console.ReadLine();
+                CategoryId =  Convert.ToInt32( Console.ReadLine());
                 Console.WriteLine("insert image: ");
                 image = Console.ReadLine();
                 Console.WriteLine("insert price: ");
-                price = Console.ReadLine();
+                price = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("do you want to insert more product? (y/n)");
                 next = Console.ReadLine();
                //try
@@ -67,7 +67,7 @@ namespace adoNetProject
                 {
                     while (reader.Read())
                     {
-                        Console.WriteLine("{0}\t{1}\t{2}\t{3}\t{4}\t{5}", reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetInt32(3), reader.GetInt32(4),reader.GetString(5));
+                        Console.WriteLine("{0}\t{1}\t{2}", reader.GetInt32(0), reader.GetString(1), reader.GetString(2));
                     }
                 }
                 else
