@@ -35,11 +35,11 @@ namespace adoNetProject
                     using (SqlConnection connection = new SqlConnection(connectionString))
                     {
                         SqlCommand command = new SqlCommand(IqueryString, connection);
-                        command.Parameters.Add("@ProductName", SqlDbType.VarChar, 20).Value = ProductName;
-                        command.Parameters.Add("@Description", SqlDbType.VarChar, 40).Value = Description;
-                        command.Parameters.Add("@CategoryId", SqlDbType.VarChar, 10).Value = CategoryId;
-                    command.Parameters.Add("@price", SqlDbType.VarChar, 10).Value = price;
-                    command.Parameters.Add("@image", SqlDbType.VarChar, 10).Value = image;
+                        command.Parameters.Add("@ProductName", SqlDbType.VarChar).Value = ProductName;
+                        command.Parameters.Add("@Description", SqlDbType.VarChar).Value = Description;
+                        command.Parameters.Add("@CategoryId", SqlDbType.Int).Value = CategoryId;
+                    command.Parameters.Add("@price", SqlDbType.Int).Value = price;
+                    command.Parameters.Add("@image", SqlDbType.VarChar).Value = image;
 
                     command.Connection.Open();
                         int x = command.ExecuteNonQuery();
@@ -67,7 +67,7 @@ namespace adoNetProject
                 {
                     while (reader.Read())
                     {
-                        Console.WriteLine("{0}\t{1}\t{2}", reader.GetInt32(0), reader.GetString(1), reader.GetString(2));
+                        Console.WriteLine("{0}\t{1}\t{2}\t{3}\t{4}\t{5}", reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetInt32(3),reader.GetInt32(4), reader.GetString(5));
                     }
                 }
                 else
